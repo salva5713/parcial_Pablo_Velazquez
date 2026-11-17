@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Listado{% endblock %}
+{% block content %}
+    <h3 class="mb-4 text-center">Listado de Datos</h3>
+    <a href="{{ url_for('formulario') }}" class="btn btn-primary mb-3">Agregar nuevo</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <!-- TODO: agregar los nombres de las columnas correspondientes a los atributos -->
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Categoría</th>
+                <th>Origen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dato in datos %}
+            <tr>
+                <td>{{ dato.id }}</td>
+                <!-- TODO: mostrar los valores de los atributos -->
+                <td>{{ dato.nombre }}</td>
+                <td>{{ dato.cantidad }}</td>
+                <td>{{ dato.categoria }}</td>
+                <td>{{ dato.origen }}</td>
+                <td>
+                    <a href="{{ url_for('editar', id=dato.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{{ url_for('eliminar', id=dato.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <!-- TODO: agregar un botton para llamar a la ruta 'acerca' usadonde la clase class="btn btn-secondary"-->
+    <a href="{{ url_for('acerca') }}" class="btn btn-secondary">Acerca de</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-secondary">Cerrar sesión</a>
+{% endblock %}

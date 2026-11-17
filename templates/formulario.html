@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Formulario{% endblock %}
+{% block content %}
+    <h3 class="mb-4 text-center">Cargar Nuevo Registro</h3>
+    <form method="POST">
+        <p><em>El campo ID se genera automáticamente.</em></p>
+        <!-- TODO: completar con los campos del modelo -->
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cantidad</label>
+            <input type="number" class="form-control" name="cantidad">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <input type="text" class="form-control" name="categoria">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Origen</label>
+            <input type="text" class="form-control" name="origen">
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{{ url_for('listado') }}" class="btn btn-secondary">Volver</a>
+    </form>
+{% endblock %}
